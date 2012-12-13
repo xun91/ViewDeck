@@ -1865,7 +1865,8 @@ static NSTimeInterval durationToAnimate(CGFloat pointsToAnimate, CGFloat velocit
             else
                 [self closeLeftViewBouncing:nil];
         }
-        if (self.rightController && CGRectGetMinX(self.slidingControllerView.frame) < 0) {
+        if ((self.rightController && CGRectGetMinX(self.slidingControllerView.frame) < 0) ||
+            (self.resizesCenterView && CGRectGetMinX(self.slidingControllerView.frame) <= 0)) {
             if (self.centerhiddenInteractivity == IIViewDeckCenterHiddenNotUserInteractiveWithTapToClose) 
                 [self closeRightView];
             else
